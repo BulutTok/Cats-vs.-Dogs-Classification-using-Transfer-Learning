@@ -308,11 +308,11 @@ After training, the model's performance is evaluated on the validation dataset. 
    - The red (training) and blue (validation) lines stay tightly together.  
    - If the red curve had continued rising while blue fell, that’d be over-fitting.  
    - If both had plateaued at a low level, that’d be under-fitting.  
-   - Here, you’re hitting a consistent ceiling at ~90–95% on both sets.
+   - Here, it is hitting a consistent ceiling at ~90–95% on both sets.
 
 3. **Dropout-Style Effect at Epoch 0**  
    - Validation starts slightly above training.  
-   - Often this happens when you use dropout (or other noise) during training but turn it off during validation.
+   - Often this happens when  dropout (or other noise) is used (or other noise) during training but turn it off during validation.
 
 4. **Next Steps**  
    - **EarlyStopping**: stop training once `val_acc` hasn’t improved for a few epochs to save time.  
