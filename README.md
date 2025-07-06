@@ -296,7 +296,29 @@ for fn in uploaded.keys():
 
 ## Results and Evaluation
 
-After training, the model's performance is evaluated on the validation dataset. Training and validation accuracy curves are plotted to help diagnose model behavior such as overfitting. Experiment with the parameters (data augmentation, number of epochs, learning rate, etc.) to further optimize performance.
+After training, the model's performance is evaluated on the validation dataset. Training and validation accuracy curves are plotted to help diagnose model behavior such as overfitting. Experiment with the parameters (data augmentation, number of epochs, learning rate, etc.) to further optimize performance. See results here:
+
+![Training vs. Validation Accuracy](result.png)
+
+1. **Fast Convergence, Then Plateau**  
+   - Both curves climb quickly in the first 5–10 epochs.  
+   - After epoch ~10, neither training nor validation accuracy improves much.
+
+2. **No Over- or Under-fitting**  
+   - The red (training) and blue (validation) lines stay tightly together.  
+   - If the red curve had continued rising while blue fell, that’d be over-fitting.  
+   - If both had plateaued at a low level, that’d be under-fitting.  
+   - Here, you’re hitting a consistent ceiling at ~90–95% on both sets.
+
+3. **Dropout-Style Effect at Epoch 0**  
+   - Validation starts slightly above training.  
+   - Often this happens when you use dropout (or other noise) during training but turn it off during validation.
+
+4. **Next Steps**  
+   - **EarlyStopping**: stop training once `val_acc` hasn’t improved for a few epochs to save time.  
+   - **Model Changes**: to break through the ~95% ceiling you’ll need more data, a different architecture, or new regularization, not just more epochs.
+
+---
 
 ---
 
